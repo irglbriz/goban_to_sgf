@@ -1,0 +1,8 @@
+name: goban_to_sgf
+dependencies:
+- python>=3.6.2
+- numpy=1.14.0
+- pytorch=0.3.0
+- pip:
+  - opencv-python==3.3.0.10
+  - sgfmill
