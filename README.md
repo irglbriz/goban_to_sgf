@@ -9,6 +9,11 @@ Currently working modules:
 * find_corners_with_contours.py
 * warp.py
 
+So at the moment you transform this
+[![basic.jpg](https://s19.postimg.org/6sf2s2ns3/basic.jpg)](https://postimg.org/image/5ddi3cmov/)
+into this
+[![equalized.jpg](https://s19.postimg.org/oigrd5ysz/equalized.jpg)](https://postimg.org/image/hs0a3qbn3/)
+
 ## Code Example
 
 TODO: Make this a reality:
