@@ -53,8 +53,8 @@ Please be aware that currently running them requires user interaction.
 
 ## Contributors
 
-Currently just me - Tristan Kraus. 
+Since I need a solo project for my portfolio, I will finish this to basic functionality on my own. After that I am open to collaboration, especially with an artist for more beautiful renders or with a go playing website to implement this as a web service. 
 
 ## License
 
-This project is published under the MIT License - see LICENSE.md
+This project is published under the MIT License - check the 'LICENSE' file.
