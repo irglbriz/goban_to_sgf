@@ -53,9 +53,3 @@ def mark_corners(img, corners):
     for (col,row) in corners:
         img[row,col] = [0,255,0] #green in BGR
     return img
-
-def main():
-    pass
-
-if __name__ == '__main__':
-    main()

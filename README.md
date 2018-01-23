@@ -8,24 +8,20 @@ Currently working modules:
 * parser.py
 * find_corners_with_contours.py
 * warp.py
+* read_position.py
+* main.py (will be extended)
 
 So at the moment you transform like this:
 [![basic.jpg](https://s19.postimg.org/6sf2s2ns3/basic.jpg)](https://postimg.org/image/5ddi3cmov/)
-[![equalized.jpg](https://s19.postimg.org/oigrd5ysz/equalized.jpg)](https://postimg.org/image/hs0a3qbn3/)
+[![intersections_marked.jpg](https://s19.postimg.org/5sf68vhn7/intersections_marked.jpg)](https://postimg.org/image/okr1cge1b/)
+[![Screen_Shot_2018-01-23_at_22.58.51.png](https://s19.postimg.org/fkhueo5gj/Screen_Shot_2018-01-23_at_22.58.51.png)](https://postimg.org/image/4858wvwrj/)
 
 ## Code Example
 
-TODO: Make this a reality:
-
 ```bash
-python main.py -convert image.jpg tsumego.sgf
+python main.py data/raw_test/basic.jpg data/sgf/basic.sgf
 ```
 converts image to sgf file
-
-```bash
-python main.py -render pos.sgf render.jpg
-```
-renders position from sgf file using blender
 
 ## Motivation
 
@@ -33,7 +29,7 @@ After doing a course on deep neural nets introducing me to Python and Tensorflow
 
 Go is my guilty pleasure and I often find myself taking pictures of interesting problems, but am too lazy to set up the position again later for analysis. 
 
-I figured since all the preexisting solutions to read a go position needed manual entry of corners why not try to automate that as well. It also presented an opportunity to learn some OpenCV, Blender and another machine learning framework like Pytorch or Keras on the way. 
+I figured since the preexisting solutions struggle with corner detection why not try to automate that as well as possible. This should present an opportunity to learn some OpenCV, Blender and another machine learning framework like Pytorch or Keras on the way. 
 
 ## Installation
 
@@ -45,10 +41,6 @@ cd goban_to_sgf
 conda env create -f environment.yml
 source activate goban_to_sgf
 ```
-
-## API Reference
-
-TODO: Settle on and document API
 
 ## Tests
 

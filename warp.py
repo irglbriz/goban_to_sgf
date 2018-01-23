@@ -40,9 +40,3 @@ def equalize(gray):
     """adaptive histogram equalization"""
     clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
     return clahe.apply(gray)
-
-def main():
-    pass
-
-if __name__ == '__main__':
-    main()
