@@ -14,6 +14,7 @@ def mat_to_sgf(mat, pathname):
     Expects 19x19 numpy matrix with '0' for empty, '1' for black and '-1' for
     white stones.
     """
+    mat = np.flipud(mat)    #sgf editors start coordinates in lower left
     game = sgf.Sgf_game(size=19)
     root_node = game.get_root()
     game.set_date()
@@ -71,4 +72,6 @@ def sgf_to_mat(pathname, move_number = None):
             mat[pos] = 1
         if (colour == 'w'):
             mat[pos] = -1
+    #internal representation starts coordinates in upper left:
+    mat = np.flipud(mat)
     return mat

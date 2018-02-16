@@ -104,8 +104,6 @@ assert np.array_equal(scanned_position,solution), "Read Position Fail!"
 
 # TODO: Test going all the way from picture to sgf with main module
 
-# TODO: Test generating a sample render with blender
-
-# TODO: Test finding corners by neural net
+# TODO: Fully automate tests
 
 print("ALL UNIT TESTS PASSED!")
