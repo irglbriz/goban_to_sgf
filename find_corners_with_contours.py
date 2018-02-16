@@ -1,7 +1,5 @@
 """Outputs corners of goban via contour search."""
 
-# Inspiration and code snippets from https://www.pyimagesearch.com
-
 import numpy as np
 import cv2
 
