@@ -18,7 +18,7 @@ testpos_looper = sgf_parser.sgf_to_mat("data/sgf/conversiontest.sgf")
 assert np.array_equal(testpos, testpos_looper), "Parser Fail!"
 
 # Test finding corners by contours with easy sample
-photo = fcwc.load_img("data/raw_test/basic.jpg")
+photo = fcwc.load_img("data/raw_test/partly/basic.jpg")
 corners = fcwc.find_corners(photo)
 marked = fcwc.mark_corners(photo, corners)
 cv2.imwrite('data/debug/marked.jpg', marked)

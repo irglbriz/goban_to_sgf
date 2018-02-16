@@ -5,7 +5,7 @@ This project aims to convert a picture of a goban to a matching sgf file.
 Currently it uses contour search for corner detection. This doesn't work well under hard conditions, eg. with flat angles, objects occluding the edge of the board, etc.. In order to alleviate this I'm considering starting another project to train a neural net and/or offer a mode with manual corner selection. 
 
 So at the moment you transform like this:
-![basic.jpg](https://github.com/irglbriz/goban_to_sgf/blob/master/data/raw_test/basic.jpg?raw=true)
+![basic.jpg](https://github.com/irglbriz/goban_to_sgf/blob/master/data/raw_test/partly/basic.jpg?raw=true)
 ![ScreenShot.png](https://github.com/irglbriz/goban_to_sgf/blob/master/data/ScreenShot.png?raw=true)
 
 ## Code Example
