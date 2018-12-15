@@ -2,15 +2,16 @@
 
 This project aims to convert a picture of a goban to a matching sgf file. 
 
-Currently it struggles with two issues:
+At the moment you transform like this:
+![basic.jpg](https://github.com/irglbriz/goban_to_sgf/blob/master/data/raw_test/partly/basic.jpg?raw=true)
+![ScreenShot.png](https://github.com/irglbriz/goban_to_sgf/blob/master/data/ScreenShot.png?raw=true)
+(sgf editor not part of project, just used for visualization)
+
+The current approach struggles with two main issues:
 
 Contour search for corner detection doesn't work well under hard conditions, eg. with flat angles, objects occluding the edge of the board, etc.. In order to alleviate this I'm considering implementing a mode with graphic UI for manual corner selection/correction and possibly starting another project to train a classifier trained on automatically rendered (and thus easily labelled) data. 
 
-The simplistic black/white/free classifier for individual stones based on simple average brightness also struggles with difficult lightning situations, eg. reflections on stones, shadows etc.. In oder to alleviate this issue I'm considering to train a simple classifier either on manually labelled data or on automatically rendered (and thus easily labelled) data. 
-
-So at the moment you transform like this:
-![basic.jpg](https://github.com/irglbriz/goban_to_sgf/blob/master/data/raw_test/partly/basic.jpg?raw=true)
-![ScreenShot.png](https://github.com/irglbriz/goban_to_sgf/blob/master/data/ScreenShot.png?raw=true)
+The simplistic black/white/free classifier for individual stones based on simple average brightness also struggles with difficult lighting situations, eg. reflections on stones, shadows etc.. In oder to alleviate this issue I'm considering to train a simple classifier either on manually labelled data or on automatically rendered (and thus easily labelled) data. 
 
 ## Code Example
 
