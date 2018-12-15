@@ -12,7 +12,6 @@ import read_position
 import sgf_parser
 
 
-
 def main():
     parser = argparse.ArgumentParser(description="bridge between jpg and sgf")
     parser.add_argument("path_to_img", help="photo of goban")

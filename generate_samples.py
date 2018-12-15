@@ -8,33 +8,41 @@
 # blender data/blender/scene.blend --background --python generate_samples.py
 
 
-import bpy #python interface for blender
+import bpy  # python interface for blender
 import numpy as np
 import random
 
+
 NUM_RENDERS = 1
 
+
 def generate_random_game_pos():
-    pos = np.zeros((19,19))
+    pos = np.zeros((19, 19))
     for x in pos:
         for y in pos:
-            pos[x][y] = random.randint(-1,1)
+            pos[x][y] = random.randint(-1, 1)
     return pos
+
 
 def put_stones():
     pass
 
+
 def camera_pos():
     pass
+
 
 def light_pos():
     pass
 
+
 def render_scene():
     pass
 
+
 def main():
     pass
+
 
 if __name__ == '__main__':
     main()

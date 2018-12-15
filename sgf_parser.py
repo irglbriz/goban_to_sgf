@@ -8,13 +8,14 @@ from sgfmill import sgf
 from sgfmill import sgf_moves
 from sgfmill import boards
 
+
 def mat_to_sgf(mat, pathname):
     """Saves matrix of game state as sgf file.
 
     Expects 19x19 numpy matrix with '0' for empty, '1' for black and '-1' for
     white stones.
     """
-    mat = np.flipud(mat)    #sgf editors start coordinates in lower left
+    mat = np.flipud(mat)    # sgf editors start coordinates in lower left
     game = sgf.Sgf_game(size=19)
     root_node = game.get_root()
     game.set_date()
@@ -25,22 +26,23 @@ def mat_to_sgf(mat, pathname):
     empty_points = []
     for row in range(19):
         for col in range(19):
-            stone = mat.item((row,col))
+            stone = mat.item((row, col))
             if stone == 1:
-                black_points.append((row,col))
+                black_points.append((row, col))
             if stone == -1:
-                white_points.append((row,col))
+                white_points.append((row, col))
             if stone == 0:
-                empty_points.append((row,col))
+                empty_points.append((row, col))
     board.apply_setup(black_points, white_points, empty_points)
     sgf_moves.set_initial_position(game, board)
     with open(pathname, "wb") as f:
         f.write(game.serialise())
 
-def sgf_to_mat(pathname, move_number = None):
+
+def sgf_to_mat(pathname, move_number=None):
     """Converts game position from sgf file to in-memory matrix representation.
 
-    Only follows left branch of game tree. 
+    Only follows left branch of game tree.
     Move number one is the empty board, default is the last node.
     Returns numpy matrix with '1's for black stones and '-1' for white
     ones.
@@ -66,12 +68,12 @@ def sgf_to_mat(pathname, move_number = None):
             board.play(row, col, colour)
         except ValueError:
             raise Exception("illegal move in sgf file")
-    mat = np.full((19,19), 0)
+    mat = np.full((19, 19), 0)
     for colour, pos in board.list_occupied_points():
         if (colour == 'b'):
             mat[pos] = 1
         if (colour == 'w'):
             mat[pos] = -1
-    #internal representation starts coordinates in upper left:
+    # internal representation starts coordinates in upper left:
     mat = np.flipud(mat)
     return mat
