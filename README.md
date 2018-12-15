@@ -5,7 +5,6 @@ This project aims to convert a picture of a goban to a matching sgf file.
 At the moment you transform like this:
 ![basic.jpg](https://github.com/irglbriz/goban_to_sgf/blob/master/data/raw_test/partly/basic.jpg?raw=true)
 ![ScreenShot.png](https://github.com/irglbriz/goban_to_sgf/blob/master/data/ScreenShot.png?raw=true)
-
 (sgf editor not part of project, just used for visualization)
 
 The current approach struggles with two main issues:
