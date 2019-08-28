@@ -1,13 +1,13 @@
 ## Synopsis
 
 This project aims to convert a picture of a goban to a matching sgf file. 
+It'll use machine learning models from [this](https://github.com/irglbriz/goban_data_set) project. 
 
 ## Code Example
 
 ```bash
 python main.py photo.jpg position.sgf
 ```
-converts image to sgf file
 
 ## Motivation
 
