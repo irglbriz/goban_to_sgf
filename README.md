@@ -6,12 +6,16 @@ It'll use machine learning models from [this](https://github.com/irglbriz/goban_
 ## Code Example
 
 ```bash
-python main.py photo.jpg position.sgf
+python main.py ./photo.jpg
+```
+or
+```bash
+python main.py ./photos/
 ```
 
 ## Motivation
 
-Go is my guilty pleasure and I often find myself taking pictures of interesting situations. With a tool like this it would be much easier to set up the position again later for further analysis. 
+Go is one of my guilty pleasures and I often find myself taking pictures of interesting situations. With a tool like this it would be much easier to restore the position for later analysis. 
 
 ## Installation
 

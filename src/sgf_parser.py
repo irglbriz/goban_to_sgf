@@ -12,12 +12,11 @@ from sgfmill import boards
 def mat_to_sgf(mat, pathname):
     """Saves matrix of game state as sgf file.
 
-    Expects 19x19 numpy matrix with '0' for empty, '1' for black and '-1' for
+    Expects 19x19 numpy matrix with '0' for empty, '1' for black and '2' for
     white stones.
     """
     mat = np.flipud(mat)    # sgf editors start coordinates in lower left
     game = sgf.Sgf_game(size=19)
-    root_node = game.get_root()
     game.set_date()
     board = boards.Board(19)
     # TODO: determine points from mat
@@ -29,7 +28,7 @@ def mat_to_sgf(mat, pathname):
             stone = mat.item((row, col))
             if stone == 1:
                 black_points.append((row, col))
-            if stone == -1:
+            if stone == 2:
                 white_points.append((row, col))
             if stone == 0:
                 empty_points.append((row, col))
@@ -44,7 +43,7 @@ def sgf_to_mat(pathname, move_number=None):
 
     Only follows left branch of game tree.
     Move number one is the empty board, default is the last node.
-    Returns numpy matrix with '1's for black stones and '-1' for white
+    Returns numpy matrix with '1's for black stones and '2' for white
     ones.
     """
     with open(pathname, "rb") as f:
@@ -73,7 +72,7 @@ def sgf_to_mat(pathname, move_number=None):
         if (colour == 'b'):
             mat[pos] = 1
         if (colour == 'w'):
-            mat[pos] = -1
+            mat[pos] = 2
     # internal representation starts coordinates in upper left:
     mat = np.flipud(mat)
     return mat
