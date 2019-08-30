@@ -1,17 +1,19 @@
 ## Synopsis
 
-This project aims to convert a picture of a goban to a matching sgf file. 
+This project aims to convert a picture of a go game position to a matching sgf file. 
 It'll use machine learning models from [this](https://github.com/irglbriz/goban_data_set) project. 
 
 ## Code Example
 
+Convert single photo:
 ```bash
-python main.py ./photo.jpg
+python src/main.py ~/tuff_position.jpg
 ```
-or
+Convert batch of photos:
 ```bash
-python main.py ./photos/
+python src/main.py ~/tournament_shots/
 ```
+Make sure that all goban corners are in center portion of the photo!
 
 ## Motivation
 
@@ -30,7 +32,7 @@ source activate goban_to_sgf
 
 ## Tests
 
-TODO: Need to be adapted to new project org and should work without user interaction
+Insufficient test coverage, but low priority at the moment. 
 
 ## Contributors
 

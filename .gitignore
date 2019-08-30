@@ -1,5 +1,4 @@
 /.vscode/
-/unused_snippets/
-/data/debug/
+/debug/
 __pycache__/
 .DS_Store

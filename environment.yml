@@ -1,8 +1,9 @@
 name: goban_to_sgf
 dependencies:
-- python>=3.6.2
-- numpy=1.14.0
+- python>=3.7
+- numpy=1.16.4
 - pip:
-  - opencv-python==3.3.0.10
+  - opencv-python=4.1.0.25
+  - tensorflow=1.14.0
   - keras-unet
   - sgfmill

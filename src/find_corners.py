@@ -21,7 +21,7 @@ def segment_with_unet(img, graph, session, model):
 def contour_corner_search(segmented):
     gray = (segmented * 255.).astype('uint8') 
     # find contours (i.e. the 'outlines') in the image:
-    _, cnts, _ = cv2.findContours(gray.copy(), 
+    cnts, _ = cv2.findContours(gray.copy(), 
                                   cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     # sort by area and keep only largest ten for better performance
     cnts = sorted(cnts, key=cv2.contourArea, reverse=True)[:10]    
