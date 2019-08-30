@@ -1,7 +1,8 @@
 ## Synopsis
 
 This project aims to convert a picture of a go game position to a matching sgf file. 
-It'll use machine learning models from [this](https://github.com/irglbriz/goban_data_set) project. 
+
+It uses machine learning models from [this](https://github.com/irglbriz/goban_data_set) project. 
 
 ## Code Example
 
