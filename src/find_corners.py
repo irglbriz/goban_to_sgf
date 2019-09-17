@@ -16,6 +16,8 @@ def segment_with_unet(img, graph, session, model):
             segmented = model.predict(img)
     segmented = np.squeeze(segmented) #drop batch and color dim
     segmented = (segmented > 0.5) * 1.
+    segmented_debug = segmented * 255
+    cv2.imwrite('debug/segmented.jpg', segmented_debug)
     return segmented
 
 def contour_corner_search(segmented):
@@ -35,6 +37,10 @@ def contour_corner_search(segmented):
         if (len(approx) == 4 and cv2.contourArea(approx) > area_prev):
             area_prev = cv2.contourArea(approx)
             corners = approx
+    contours_debug = (segmented * 255).astype('uint8')
+    contours_debug = cv2.cvtColor(contours_debug, cv2.COLOR_GRAY2RGB)
+    cv2.drawContours(contours_debug, [corners] , -1, (0,255,0), 4)
+    cv2.imwrite('debug/contours_debug.jpg', contours_debug)
     corners = np.reshape(corners, (4, 2))
     return corners
 

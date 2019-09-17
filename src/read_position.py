@@ -1,6 +1,8 @@
 """Reads game position by classifying segments using simple model"""
 
 import numpy as np
+import cv2
+import os
 from collections import Counter
 
 SEGMENT_RES = 20 # 19x20 - goban is 19x19, patches will be 20x20
@@ -8,10 +10,13 @@ BATCH_SIZE = 19
 
 def cut_segments(img):
     segments = []
+    if not os.path.exists('debug/segments/'):
+        os.mkdir('debug/segments/')
     for x in range(19):
         for y in range(19):
             segment = img[x*SEGMENT_RES:(x+1)*SEGMENT_RES, y*SEGMENT_RES:(y+1)*SEGMENT_RES]
             segments.append(segment)
+            cv2.imwrite('debug/segments/' + str(x) + '_' + str(y) + '.jpg', segment)
     return segments
 
 def classify_segments(segments, graph, session, model):
@@ -33,4 +38,5 @@ def read_position(warped, graph, session, model):
     counts = Counter(predictions)
     print(f"Found {counts[0]} empty fields, {counts[1]} black stones, and {counts[2]} white stones.")
     position = np.reshape(predictions, (19,19))
+    print('\n', position, '\n')
     return position
