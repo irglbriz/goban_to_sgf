@@ -36,7 +36,7 @@ def mat_to_sgf(mat, pathname):
     sgf_moves.set_initial_position(game, board)
     with open(pathname, "wb") as f:
         f.write(game.serialise())
-    print(f"Saved game position as {pathname}")
+    print(f'Saved game position as {pathname}\n')
 
 def sgf_to_mat(pathname, move_number=None):
     """Converts game position from sgf file to in-memory matrix representation.

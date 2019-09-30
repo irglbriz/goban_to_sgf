@@ -18,7 +18,7 @@ Make sure that all goban corners are in center portion of the photo!
 
 ## Motivation
 
-Go is one of my guilty pleasures and I often find myself taking pictures of interesting situations. With a tool like this it would be much easier to restore the position for later analysis. 
+Go is one of my guilty pleasures and I often find myself taking pictures of interesting situations. With a tool like this it is much easier to restore a position for computer analysis. 
 
 ## Installation
 

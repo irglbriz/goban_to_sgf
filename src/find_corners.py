@@ -29,6 +29,7 @@ def contour_corner_search(segmented):
     cnts = sorted(cnts, key=cv2.contourArea, reverse=True)[:10]    
     # loop over the contours
     area_prev = 0.0
+    corners = None
     for c in cnts:
         # approximate the contour
         peri = cv2.arcLength(c, closed=True)
@@ -37,6 +38,7 @@ def contour_corner_search(segmented):
         if (len(approx) == 4 and cv2.contourArea(approx) > area_prev):
             area_prev = cv2.contourArea(approx)
             corners = approx
+    assert corners is not None, "No corners found!"
     contours_debug = (segmented * 255).astype('uint8')
     contours_debug = cv2.cvtColor(contours_debug, cv2.COLOR_GRAY2RGB)
     cv2.drawContours(contours_debug, [corners] , -1, (0,255,0), 4)

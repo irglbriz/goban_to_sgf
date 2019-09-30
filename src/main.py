@@ -7,6 +7,7 @@ import cv2
 import os
 import re
 import argparse
+import time
 
 import preprocess
 import init_models
@@ -30,21 +31,24 @@ def main():
     else:
         for file in os.listdir(args.input_path):
             if re.match(r'^.*\.(jpg|png)$', file.lower()):
-                queue.append(args.input_path+file)
-    print(f'processing queue: {queue}')
+                queue.append(args.input_path+'/'+file)
+    print(f'{len(queue)} items in queue:')
+    for item in queue:
+        print(item)
         
     # we keep two models loaded at the same time so we don't have to reload for batch processing
     graph0, session0, model0 = init_models.init_seg_model()
     graph1, session1, model1 = init_models.init_class_model()
 
     for filename in queue:
-        print(f"Processing {filename} ...")
+        start = time.time()
+        print(f"Processing {filename} ...\n")
         # All processing is done in gray
         gray = cv2.imread(filename, cv2.IMREAD_GRAYSCALE)
         assert gray.shape[0] >= MIN_RES and gray.shape[1] >= MIN_RES, "Input resolution too low!"
 
         img = preprocess.equalize_and_crop(gray)
-        print(f'cropped to: {img.shape}')
+        print(f'Cropped to {img.shape}\n')
         assert img.shape[0] == img.shape[1], "Not quadratic after cropping!"
         cv2.imwrite('debug/cropped.jpg', img)
         
@@ -53,7 +57,7 @@ def main():
         # rescale coordinates
         corners = corners * img.shape[0] / UNET_RES
         assert np.min(corners) >= 0 and np.max(corners) <= img.shape[0], "Corner coordinates out of bound!"
-        print(f'found the following corners: \n{corners}')
+        print(f'Corner coordinates: \n{corners}\n')
 
         warped = warp.top_down_view(img, corners)
         cv2.imwrite('debug/warped.jpg', warped)
@@ -61,6 +65,9 @@ def main():
         position = rp.read_position(warped, graph1, session1, model1)
 
         sgf_parser.mat_to_sgf(position, filename.rsplit('.', 1)[0]+'.sgf')
+        stop = time.time()
+        processing_time = stop - start
+        print(f'Processing time: {processing_time} seconds\n')
 
 if __name__ == '__main__':
     main()

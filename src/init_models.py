@@ -18,7 +18,7 @@ def init_seg_model():
                 model = load_model(SEG_MODEL_PATH, 
                                custom_objects={'iou': iou, 
                                                'iou_thresholded': iou_thresholded})
-    print('model0 initialized')
+    print('Model0 initialized\n')
     return graph, session, model
 
 def init_class_model():
@@ -28,5 +28,5 @@ def init_class_model():
         with session.as_default():
             with CustomObjectScope({'GlorotUniform': tf.keras.initializers.glorot_uniform}):
                 model = load_model(CLASS_MODEL_PATH)
-    print('model1 initialized')
+    print('Model1 initialized\n')
     return graph, session, model
