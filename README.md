@@ -2,8 +2,12 @@
 
 This project aims to convert a picture of a go game position to a matching sgf file. 
 ![Objective](objective.jpg)
-It uses machine learning models from [this](https://github.com/irglbriz/goban_data_set) project. 
+
+To help you understand the computer vision pipeline, have a look at this overview:
 ![Pipeline](pipeline.jpg)
+
+This program uses machine learning models from another project of mine: [goban_data_set](https://github.com/irglbriz/goban_data_set).
+
 ## Code Example
 
 Convert single photo:
